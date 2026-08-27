@@ -3,280 +3,226 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hunza City Hotel — Aliabad, Hunza Valley</title>
-<meta name="description" content="Hunza City Hotel — Hospital Road, Aliabad, Hunza Valley. Welcoming guests since 2016. For reservations call Azeem Ahmed +92 344 0562425.">
+<title>Hunza City Hotel | Aliabad, Hunza Valley</title>
+<meta name="description" content="Hunza City Hotel, Hospital Road, Aliabad, Hunza Valley. Welcoming guests since 2016. For reservations call Azeem Ahmed at +92 344 0562425.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛰️</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,450;0,9..144,550;1,9..144,450&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #f7f3ea;
-    --ink: #232a33;
-    --ink-soft: rgba(35, 42, 51, 0.72);
-    --ink-faint: rgba(35, 42, 51, 0.48);
-    --glacier: #2c7a75;
-    --apricot: #d9964a;
-    --line: rgba(35, 42, 51, 0.16);
+    --bg: #ffffff;
+    --text: #111827;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --green: #16a34a;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html { height: 100%; }
-
   body {
     min-height: 100dvh;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: "Inter", -apple-system, "Helvetica Neue", Arial, sans-serif;
-    font-weight: 300;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     display: flex;
     flex-direction: column;
-    padding: clamp(1.2rem, 3vw, 2.4rem) clamp(1.2rem, 4vw, 3.2rem);
+    align-items: center;
+    padding: clamp(2rem, 6vh, 4rem) 1.5rem clamp(1.5rem, 4vh, 2.5rem);
   }
 
-  /* ---------- header ---------- */
-  header {
+  .wrap {
+    width: 100%;
+    max-width: 880px;
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 1rem;
-    padding-bottom: clamp(0.9rem, 2vh, 1.3rem);
-    border-bottom: 1px solid var(--ink);
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
   }
 
-  .wordmark {
-    font-family: "Fraunces", Georgia, serif;
-    font-weight: 550;
-    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
-    letter-spacing: 0.01em;
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 0.83rem;
+    font-weight: 500;
+    color: var(--muted);
   }
 
-  .place {
-    font-size: clamp(0.62rem, 1.3vw, 0.72rem);
-    font-weight: 400;
-    letter-spacing: 0.26em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-  }
-
-  /* ---------- headline ---------- */
-  .head {
-    padding: clamp(1.6rem, 4.5vh, 3rem) 0 clamp(1.6rem, 4vh, 2.6rem);
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 1.2rem 3rem;
+  .badge::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
   }
 
   h1 {
-    font-family: "Fraunces", Georgia, "Times New Roman", serif;
-    font-weight: 450;
-    font-size: clamp(2rem, 4.6vw, 3.7rem);
-    line-height: 1.14;
-    letter-spacing: -0.005em;
-    max-width: 15em;
+    margin-top: 1.4rem;
+    font-size: clamp(2.2rem, 6vw, 3.4rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
   }
 
-  h1 em {
-    font-style: italic;
-    color: var(--glacier);
+  .sub {
+    margin-top: 1.1rem;
+    max-width: 36em;
+    font-size: clamp(1rem, 2vw, 1.13rem);
+    line-height: 1.65;
+    color: var(--muted);
   }
 
-  .head-side {
-    max-width: 21em;
-    font-size: clamp(0.92rem, 1.5vw, 1.02rem);
-    line-height: 1.7;
-    color: var(--ink-soft);
-    padding-bottom: 0.4em;
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1.8rem;
   }
 
-  /* ---------- photographs ---------- */
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: clamp(0.8rem, 1.8vw, 1.4rem);
-    flex: 1;
-    min-height: 0;
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.15s ease, background 0.15s ease;
   }
 
-  figure { display: flex; flex-direction: column; min-height: 0; }
+  .btn-dark {
+    background: var(--text);
+    color: #ffffff;
+  }
+
+  .btn-dark:hover { opacity: 0.85; }
+
+  .btn-light {
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  .btn-light:hover { background: #f9fafb; }
+
+  .btn:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+  }
+
+  .contact-note {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
 
   .photo {
     position: relative;
+    width: 100%;
     flex: 1;
-    min-height: clamp(200px, 34vh, 420px);
+    min-height: clamp(260px, 42vh, 460px);
+    margin-top: clamp(1.8rem, 4.5vh, 2.8rem);
+    border-radius: 16px;
     overflow: hidden;
-    border-radius: 2px;
   }
 
-  .photo img {
+  .photo .slide {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.8s cubic-bezier(0.2, 0.6, 0.2, 1);
-  }
-
-  figure:hover .photo img { transform: scale(1.045); }
-
-  figcaption {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.6rem;
-    margin-top: 0.65rem;
-    font-size: clamp(0.6rem, 1.2vw, 0.68rem);
-    font-weight: 400;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-  }
-
-  figcaption i {
-    font-style: normal;
-    color: var(--apricot);
-  }
-
-  /* ---------- foot ---------- */
-  .foot {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 0.9rem 2.5rem;
-    margin-top: clamp(1.4rem, 3.5vh, 2.4rem);
-    padding-top: clamp(1.1rem, 2.5vh, 1.6rem);
-    border-top: 1px solid var(--line);
-  }
-
-  .soon {
-    font-size: clamp(0.64rem, 1.3vw, 0.74rem);
-    font-weight: 500;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--ink);
-  }
-
-  .soon::before {
-    content: "";
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--apricot);
-    margin-right: 0.9em;
-    vertical-align: 1px;
-  }
-
-  .contact {
-    font-size: clamp(0.95rem, 1.6vw, 1.05rem);
-    line-height: 1.9;
-    color: var(--ink-soft);
-  }
-
-  .contact strong { font-weight: 500; color: var(--ink); }
-
-  .contact a {
-    color: var(--ink);
-    font-weight: 400;
-    text-decoration: none;
-    border-bottom: 1px solid var(--glacier);
-    padding-bottom: 0.1em;
-    transition: color 0.2s ease;
-    white-space: nowrap;
-  }
-
-  .contact a:hover { color: var(--glacier); }
-
-  .contact a:focus-visible {
-    outline: 2px solid var(--glacier);
-    outline-offset: 3px;
-    border-bottom-color: transparent;
-  }
-
-  .sep { color: var(--ink-faint); padding: 0 0.5em; }
-
-  /* ---------- entrance ---------- */
-  header, .head > *, figure, .foot {
+    background-size: cover;
+    background-position: center;
     opacity: 0;
-    transform: translateY(18px);
-    animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+    animation: fade 32s infinite;
   }
-  header             { animation-delay: 0.05s; }
-  .head > *:nth-child(1) { animation-delay: 0.15s; }
-  .head > *:nth-child(2) { animation-delay: 0.25s; }
-  figure:nth-child(1) { animation-delay: 0.35s; }
-  figure:nth-child(2) { animation-delay: 0.45s; }
-  figure:nth-child(3) { animation-delay: 0.55s; }
-  figure:nth-child(4) { animation-delay: 0.65s; }
-  .foot              { animation-delay: 0.8s; }
+
+  .slide:nth-child(1) { background-image: url("assets/attabad-lake.jpg"); animation-delay: -32s; }
+  .slide:nth-child(2) { background-image: url("assets/karimabad.jpg");    animation-delay: -24s; }
+  .slide:nth-child(3) { background-image: url("assets/passu-road.jpg");   animation-delay: -16s; }
+  .slide:nth-child(4) { background-image: url("assets/passu-cones.jpg");  animation-delay: -8s;  }
+
+  @keyframes fade {
+    0%   { opacity: 1; }
+    20%  { opacity: 1; }
+    28%  { opacity: 0; }
+    92%  { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  footer {
+    margin-top: clamp(1.2rem, 3vh, 2rem);
+    font-size: 0.83rem;
+    color: var(--muted);
+  }
+
+  /* one quick, quiet entrance */
+  .wrap > *, footer {
+    opacity: 0;
+    transform: translateY(10px);
+    animation-name: rise;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+  }
+  .wrap > *:nth-child(1) { animation-delay: 0.05s; }
+  .wrap > *:nth-child(2) { animation-delay: 0.12s; }
+  .wrap > *:nth-child(3) { animation-delay: 0.19s; }
+  .wrap > *:nth-child(4) { animation-delay: 0.26s; }
+  .wrap > *:nth-child(5) { animation-delay: 0.33s; }
+  .wrap > *:nth-child(6) { animation-delay: 0.4s; }
+  footer { animation-delay: 0.5s; }
 
   @keyframes rise {
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* ---------- small screens ---------- */
-  @media (max-width: 760px) {
-    body { padding-bottom: 2rem; }
-    .gallery { grid-template-columns: 1fr 1fr; }
-    .photo { min-height: 24vh; }
-    h1 { max-width: none; }
-    .foot { flex-direction: column; align-items: flex-start; }
+  @media (max-width: 520px) {
+    .actions { width: 100%; flex-direction: column; }
+    .btn { width: 100%; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    header, .head > *, figure, .foot { animation: none; opacity: 1; transform: none; }
-    .photo img { transition: none; }
+    .wrap > *, footer { animation: none; opacity: 1; transform: none; }
+    .photo .slide { animation: none; }
+    .slide:nth-child(1) { opacity: 1; }
   }
 </style>
 </head>
 <body>
 
-  <header>
-    <span class="wordmark">Hunza City Hotel</span>
-    <span class="place">Hospital Road · Aliabad · Hunza</span>
-  </header>
+  <div class="wrap">
+    <span class="badge">Website coming soon</span>
 
-  <section class="head">
-    <h1>Welcoming travellers to the heart of the <em>Karakoram</em> since 2016.</h1>
-    <p class="head-side">
-      A family-run hotel on Hospital Road, Aliabad — minutes from Attabad
-      Lake, Baltit Fort, and the Karakoram Highway.
+    <h1>Hunza City Hotel</h1>
+
+    <p class="sub">
+      A family-run hotel on Hospital Road in Aliabad, Hunza Valley.
+      We have been welcoming guests since 2016. Attabad Lake, Baltit Fort,
+      and the Karakoram Highway are all a short drive away.
     </p>
-  </section>
 
-  <section class="gallery" aria-label="Photographs of the Hunza Valley">
-    <figure>
-      <div class="photo"><img src="assets/attabad-lake.jpg" alt="The turquoise water of Attabad Lake beneath steep rock walls"></div>
-      <figcaption><span>Attabad Lake</span> <i>01</i></figcaption>
-    </figure>
-    <figure>
-      <div class="photo"><img src="assets/karimabad.jpg" alt="Baltit Fort above the stone houses and trees of Karimabad"></div>
-      <figcaption><span>Baltit Fort</span> <i>02</i></figcaption>
-    </figure>
-    <figure>
-      <div class="photo"><img src="assets/passu-road.jpg" alt="The Karakoram Highway running toward snow-covered peaks near Passu"></div>
-      <figcaption><span>Karakoram Highway</span> <i>03</i></figcaption>
-    </figure>
-    <figure>
-      <div class="photo"><img src="assets/passu-cones.jpg" alt="The jagged peaks of Passu Cathedral under clouds"></div>
-      <figcaption><span>Passu Cathedral</span> <i>04</i></figcaption>
-    </figure>
-  </section>
+    <div class="actions">
+      <a class="btn btn-dark" href="tel:+923440562425">Call +92 344 0562425</a>
+      <a class="btn btn-light" href="https://wa.me/923440562425" target="_blank" rel="noopener">Message on WhatsApp</a>
+    </div>
 
-  <footer class="foot">
-    <span class="soon">Website coming soon</span>
-    <p class="contact">
-      For reservations, please contact <strong>Azeem Ahmed</strong>
-      <span class="sep">—</span>
-      <a href="tel:+923440562425">+92 344 0562425</a>
-      <span class="sep">·</span>
-      <a href="https://wa.me/923440562425" target="_blank" rel="noopener">WhatsApp</a>
-    </p>
-  </footer>
+    <p class="contact-note">For reservations, please contact Azeem Ahmed.</p>
+
+    <div class="photo" aria-label="Photographs of the Hunza Valley">
+      <div class="slide"></div>
+      <div class="slide"></div>
+      <div class="slide"></div>
+      <div class="slide"></div>
+    </div>
+  </div>
+
+  <footer>hunzacityhotel.com · Hospital Road, Aliabad, Hunza, Gilgit-Baltistan</footer>
 
 </body>
 </html>
