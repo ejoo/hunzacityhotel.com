@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hunza City Hotel — Opening Soon</title>
+<meta name="description" content="Hunza City Hotel — a new place to stay in Karimabad, Hunza Valley, Gilgit-Baltistan. Opening soon.">
+<link rel="preload" as="image" href="assets/attabad-lake.jpg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛰️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Outfit:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night: #0e1622;
+    --slate: #24344d;
+    --ivory: #f2ede3;
+    --ivory-dim: rgba(242, 237, 227, 0.72);
+    --apricot: #e2a45c;
+    --glacier: #6fc4bf;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body { height: 100%; }
+
+  body {
+    background: var(--night);
+    color: var(--ivory);
+    font-family: "Outfit", "Avenir Next", Avenir, sans-serif;
+    font-weight: 300;
+    overflow: hidden;
+  }
+
+  /* ---------- slideshow ---------- */
+  .scene {
+    position: fixed;
+    inset: 0;
+  }
+
+  .scene .slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: drift 36s infinite;
+    will-change: opacity, transform;
+  }
+
+  .slide:nth-child(1) { background-image: url("assets/attabad-lake.jpg"); animation-delay: -36s; }
+  .slide:nth-child(2) { background-image: url("assets/passu-cones.jpg");  animation-delay: -27s; }
+  .slide:nth-child(3) { background-image: url("assets/passu-road.jpg");   animation-delay: -18s; }
+  .slide:nth-child(4) { background-image: url("assets/karimabad.jpg");    animation-delay: -9s;  }
+
+  @keyframes drift {
+    0%   { opacity: 1; transform: scale(1); }
+    22%  { opacity: 1; }
+    31%  { opacity: 0; transform: scale(1.08); }
+    91%  { opacity: 0; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  /* dusk scrim so the type always reads */
+  .scene::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg,
+        rgba(14, 22, 34, 0.62) 0%,
+        rgba(14, 22, 34, 0.38) 40%,
+        rgba(14, 22, 34, 0.66) 82%,
+        rgba(14, 22, 34, 0.88) 100%),
+      radial-gradient(ellipse at 50% 42%, rgba(14, 22, 34, 0) 30%, rgba(14, 22, 34, 0.45) 100%);
+  }
+
+  /* ---------- content ---------- */
+  .frame {
+    position: relative;
+    z-index: 2;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem clamp(1.25rem, 5vw, 4rem);
+  }
+
+  .eyebrow {
+    font-size: clamp(0.62rem, 1.4vw, 0.78rem);
+    letter-spacing: 0.42em;
+    text-indent: 0.42em; /* balances the tracking on centered text */
+    text-transform: uppercase;
+    color: var(--ivory-dim);
+    opacity: 0;
+    animation: rise 1.2s 0.3s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  }
+
+  h1 {
+    font-family: "Cormorant Garamond", "Times New Roman", serif;
+    font-weight: 300;
+    font-size: clamp(2.9rem, 9.5vw, 6.8rem);
+    line-height: 1.04;
+    letter-spacing: 0.015em;
+    margin-top: clamp(1rem, 2.5vh, 1.6rem);
+    opacity: 0;
+    animation: rise 1.4s 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  }
+
+  h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--apricot);
+  }
+
+  /* ---------- the ridgeline signature ---------- */
+  .ridge {
+    width: min(430px, 74vw);
+    margin-top: clamp(1.1rem, 3vh, 2rem);
+    overflow: visible;
+  }
+
+  .ridge path {
+    fill: none;
+    stroke: var(--apricot);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 620;
+    stroke-dashoffset: 620;
+    animation: trace 2.6s 1.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes trace { to { stroke-dashoffset: 0; } }
+
+  /* the hotel's own light on the ridge */
+  .ridge circle {
+    fill: var(--apricot);
+    opacity: 0;
+    transform-origin: center;
+    animation: lamp 3.2s 3.6s ease-in-out infinite;
+  }
+
+  @keyframes lamp {
+    0%, 100% { opacity: 0.35; }
+    50%      { opacity: 1; }
+  }
+
+  .lede {
+    max-width: 34em;
+    margin-top: clamp(1.2rem, 3vh, 2rem);
+    font-size: clamp(0.95rem, 2vw, 1.08rem);
+    font-weight: 200;
+    line-height: 1.75;
+    color: var(--ivory-dim);
+    opacity: 0;
+    animation: rise 1.4s 1.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  }
+
+  .soon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7em;
+    margin-top: clamp(1.6rem, 4vh, 2.6rem);
+    padding: 0.78em 1.7em;
+    border: 1px solid rgba(242, 237, 227, 0.28);
+    border-radius: 100px;
+    font-size: clamp(0.66rem, 1.5vw, 0.8rem);
+    letter-spacing: 0.34em;
+    text-indent: 0.34em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: rise 1.4s 2.4s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  }
+
+  .soon::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--glacier);
+    box-shadow: 0 0 12px var(--glacier);
+    animation: lamp 2.6s ease-in-out infinite;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(26px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ---------- bottom bar ---------- */
+  .bar {
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: clamp(1rem, 3vw, 2rem) clamp(1.25rem, 4vw, 2.5rem);
+    font-size: clamp(0.6rem, 1.3vw, 0.72rem);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(242, 237, 227, 0.55);
+    opacity: 0;
+    animation: rise 1.4s 2.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  }
+
+  /* captions crossfade in step with the photographs */
+  .captions {
+    position: relative;
+    text-align: right;
+    min-width: 14em;
+    height: 1.2em;
+  }
+
+  .captions span {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    white-space: nowrap;
+    opacity: 0;
+    animation: caption 36s infinite;
+  }
+
+  .captions span:nth-child(1) { animation-delay: -36s; }
+  .captions span:nth-child(2) { animation-delay: -27s; }
+  .captions span:nth-child(3) { animation-delay: -18s; }
+  .captions span:nth-child(4) { animation-delay: -9s;  }
+
+  @keyframes caption {
+    0%   { opacity: 1; }
+    22%  { opacity: 1; }
+    31%  { opacity: 0; }
+    91%  { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @media (max-width: 560px) {
+    .bar { flex-direction: column; align-items: center; gap: 0.6em; }
+    .captions { text-align: center; min-width: 0; }
+    .captions span { right: 50%; transform: translateX(50%); }
+  }
+
+  /* ---------- calm for those who ask for it ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    .slide, .captions span, .ridge path, .ridge circle, .soon::before,
+    .eyebrow, h1, .lede, .soon, .bar {
+      animation: none;
+    }
+    .slide:nth-child(1), .captions span:nth-child(1) { opacity: 1; }
+    .eyebrow, h1, .lede, .soon, .bar { opacity: 1; }
+    .ridge path { stroke-dashoffset: 0; }
+    .ridge circle { opacity: 0.9; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="scene" aria-hidden="true">
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+  </div>
+
+  <main class="frame">
+    <p class="eyebrow">Karimabad · Hunza Valley · 2,438 m</p>
+
+    <h1><em>Hunza</em> City Hotel</h1>
+
+    <!-- ridgeline drawn in light: the skyline above the valley,
+         with a single lamp where the hotel keeps its welcome -->
+    <svg class="ridge" viewBox="0 0 430 64" role="img" aria-label="A drawn mountain ridgeline with a glowing light marking the hotel">
+      <path d="M2 56 L38 40 L57 47 L86 22 L104 34 L128 12 L149 30 L166 24 L192 44 L214 8 L238 40 L259 33 L282 48 L308 18 L330 38 L352 28 L376 46 L404 36 L428 56" />
+      <circle cx="259" cy="33" r="3.2" />
+    </svg>
+
+    <p class="lede">
+      A small hotel is taking shape in the heart of the Karakoram —
+      below Baltit Fort, above the Hunza River, with apricot orchards
+      and eight-thousand-metre skies for neighbours.
+    </p>
+
+    <p class="soon">Opening soon</p>
+  </main>
+
+  <footer class="bar">
+    <span>hunzacityhotel.com</span>
+    <span class="captions" aria-hidden="true">
+      <span>Attabad Lake, Gojal</span>
+      <span>Passu Cathedral</span>
+      <span>The Karakoram Highway</span>
+      <span>Baltit Fort, Karimabad</span>
+    </span>
+  </footer>
+
+</body>
+</html>
