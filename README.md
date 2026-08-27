@@ -1,6 +1,6 @@
 # Hunza City Hotel — Coming Soon
 
-Coming-soon page for [hunzacityhotel.com](https://hunzacityhotel.com) — a new hotel in Karimabad, Hunza Valley, Gilgit-Baltistan.
+Coming-soon page for [hunzacityhotel.com](https://hunzacityhotel.com) — Hunza City Hotel, Hospital Road, Aliabad, Hunza Valley, Gilgit-Baltistan. The hotel has been operating since 2016; the website is on its way.
 
 A single static page: four photographs of Hunza slowly crossfade behind the hotel name, a golden mountain ridgeline draws itself on load, and photo captions rotate in step with the images. No build step, no dependencies.
 
