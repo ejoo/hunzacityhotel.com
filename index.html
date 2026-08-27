@@ -5,275 +5,277 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hunza City Hotel — Aliabad, Hunza Valley</title>
 <meta name="description" content="Hunza City Hotel — Hospital Road, Aliabad, Hunza Valley. Welcoming guests since 2016. For reservations call Azeem Ahmed +92 344 0562425.">
-<link rel="preload" as="image" href="assets/attabad-lake.jpg">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛰️</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,450;0,9..144,550;1,9..144,450&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --dusk: #0b111a;
-    --white: #ffffff;
-    --white-soft: rgba(255, 255, 255, 0.82);
-    --white-faint: rgba(255, 255, 255, 0.55);
-    --apricot: #e8b06b;
+    --paper: #f7f3ea;
+    --ink: #232a33;
+    --ink-soft: rgba(35, 42, 51, 0.72);
+    --ink-faint: rgba(35, 42, 51, 0.48);
+    --glacier: #2c7a75;
+    --apricot: #d9964a;
+    --line: rgba(35, 42, 51, 0.16);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html, body { height: 100%; }
+  html { height: 100%; }
 
   body {
-    background: var(--dusk);
-    color: var(--white);
+    min-height: 100dvh;
+    background: var(--paper);
+    color: var(--ink);
     font-family: "Inter", -apple-system, "Helvetica Neue", Arial, sans-serif;
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
-    overflow: hidden;
-  }
-
-  /* ---------- photographs ---------- */
-  .scene { position: fixed; inset: 0; }
-
-  .scene .slide {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    animation: fade 40s infinite;
-    will-change: opacity, transform;
-  }
-
-  .slide:nth-child(1) { background-image: url("assets/attabad-lake.jpg"); animation-delay: -40s; }
-  .slide:nth-child(2) { background-image: url("assets/karimabad.jpg");    animation-delay: -30s; }
-  .slide:nth-child(3) { background-image: url("assets/passu-road.jpg");   animation-delay: -20s; }
-  .slide:nth-child(4) { background-image: url("assets/passu-cones.jpg");  animation-delay: -10s; }
-
-  @keyframes fade {
-    0%    { opacity: 1; transform: scale(1); }
-    22%   { opacity: 1; }
-    28.5% { opacity: 0; transform: scale(1.06); }
-    93%   { opacity: 0; transform: scale(1); }
-    100%  { opacity: 1; transform: scale(1); }
-  }
-
-  /* one even veil — text reads everywhere, photos stay present */
-  .scene::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      linear-gradient(180deg, rgba(11, 17, 26, 0.20) 0%, rgba(11, 17, 26, 0.0) 25%, rgba(11, 17, 26, 0.0) 55%, rgba(11, 17, 26, 0.55) 100%),
-      rgba(11, 17, 26, 0.52);
-  }
-
-  /* ---------- content ---------- */
-  .frame {
-    position: relative;
-    z-index: 1;
-    height: 100dvh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem clamp(1.5rem, 6vw, 4rem) 6rem;
+    padding: clamp(1.2rem, 3vw, 2.4rem) clamp(1.2rem, 4vw, 3.2rem);
   }
 
-  .eyebrow {
-    font-size: clamp(0.68rem, 1.4vw, 0.78rem);
+  /* ---------- header ---------- */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding-bottom: clamp(0.9rem, 2vh, 1.3rem);
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .wordmark {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 550;
+    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+    letter-spacing: 0.01em;
+  }
+
+  .place {
+    font-size: clamp(0.62rem, 1.3vw, 0.72rem);
     font-weight: 400;
-    letter-spacing: 0.34em;
-    text-indent: 0.34em;
+    letter-spacing: 0.26em;
     text-transform: uppercase;
-    color: var(--white-soft);
+    color: var(--ink-faint);
+  }
+
+  /* ---------- headline ---------- */
+  .head {
+    padding: clamp(1.6rem, 4.5vh, 3rem) 0 clamp(1.6rem, 4vh, 2.6rem);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.2rem 3rem;
   }
 
   h1 {
     font-family: "Fraunces", Georgia, "Times New Roman", serif;
-    font-weight: 500;
-    font-size: clamp(3rem, 9vw, 6.5rem);
-    line-height: 1.05;
-    letter-spacing: 0.005em;
-    margin-top: clamp(0.9rem, 2.5vh, 1.4rem);
-    text-shadow: 0 2px 24px rgba(11, 17, 26, 0.35);
+    font-weight: 450;
+    font-size: clamp(2rem, 4.6vw, 3.7rem);
+    line-height: 1.14;
+    letter-spacing: -0.005em;
+    max-width: 15em;
   }
 
-  .rule {
-    width: 52px;
-    height: 2px;
-    border: none;
-    background: var(--apricot);
-    margin: clamp(1.4rem, 3.5vh, 2.2rem) auto;
+  h1 em {
+    font-style: italic;
+    color: var(--glacier);
   }
 
-  .lede {
-    max-width: 33em;
-    font-size: clamp(1rem, 1.9vw, 1.15rem);
-    font-weight: 300;
-    line-height: 1.75;
-    color: var(--white-soft);
+  .head-side {
+    max-width: 21em;
+    font-size: clamp(0.92rem, 1.5vw, 1.02rem);
+    line-height: 1.7;
+    color: var(--ink-soft);
+    padding-bottom: 0.4em;
   }
 
-  .soon {
-    margin-top: clamp(1.6rem, 4vh, 2.4rem);
-    font-size: clamp(0.68rem, 1.4vw, 0.78rem);
-    font-weight: 500;
-    letter-spacing: 0.34em;
-    text-indent: 0.34em;
+  /* ---------- photographs ---------- */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(0.8rem, 1.8vw, 1.4rem);
+    flex: 1;
+    min-height: 0;
+  }
+
+  figure { display: flex; flex-direction: column; min-height: 0; }
+
+  .photo {
+    position: relative;
+    flex: 1;
+    min-height: clamp(200px, 34vh, 420px);
+    overflow: hidden;
+    border-radius: 2px;
+  }
+
+  .photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.2, 0.6, 0.2, 1);
+  }
+
+  figure:hover .photo img { transform: scale(1.045); }
+
+  figcaption {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.6rem;
+    margin-top: 0.65rem;
+    font-size: clamp(0.6rem, 1.2vw, 0.68rem);
+    font-weight: 400;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  figcaption i {
+    font-style: normal;
     color: var(--apricot);
   }
 
-  .reserve {
-    margin-top: clamp(1.2rem, 3vh, 1.8rem);
-    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
-    line-height: 2;
-    color: var(--white-soft);
+  /* ---------- foot ---------- */
+  .foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.9rem 2.5rem;
+    margin-top: clamp(1.4rem, 3.5vh, 2.4rem);
+    padding-top: clamp(1.1rem, 2.5vh, 1.6rem);
+    border-top: 1px solid var(--line);
   }
 
-  .reserve a {
-    color: var(--white);
+  .soon {
+    font-size: clamp(0.64rem, 1.3vw, 0.74rem);
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .soon::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--apricot);
+    margin-right: 0.9em;
+    vertical-align: 1px;
+  }
+
+  .contact {
+    font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+    line-height: 1.9;
+    color: var(--ink-soft);
+  }
+
+  .contact strong { font-weight: 500; color: var(--ink); }
+
+  .contact a {
+    color: var(--ink);
     font-weight: 400;
     text-decoration: none;
-    border-bottom: 1px solid var(--apricot);
-    padding-bottom: 0.12em;
+    border-bottom: 1px solid var(--glacier);
+    padding-bottom: 0.1em;
     transition: color 0.2s ease;
     white-space: nowrap;
   }
 
-  .reserve a:hover { color: var(--apricot); }
+  .contact a:hover { color: var(--glacier); }
 
-  .reserve a:focus-visible {
-    outline: 2px solid var(--apricot);
+  .contact a:focus-visible {
+    outline: 2px solid var(--glacier);
     outline-offset: 3px;
     border-bottom-color: transparent;
   }
 
-  .sep { color: var(--white-faint); padding: 0 0.55em; }
+  .sep { color: var(--ink-faint); padding: 0 0.5em; }
 
-  /* gentle entrance, one pass */
-  .frame > * {
+  /* ---------- entrance ---------- */
+  header, .head > *, figure, .foot {
     opacity: 0;
-    transform: translateY(16px);
-    animation: rise 1s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+    transform: translateY(18px);
+    animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
   }
-  .frame > *:nth-child(1) { animation-delay: 0.2s; }
-  .frame > *:nth-child(2) { animation-delay: 0.35s; }
-  .frame > *:nth-child(3) { animation-delay: 0.5s; }
-  .frame > *:nth-child(4) { animation-delay: 0.65s; }
-  .frame > *:nth-child(5) { animation-delay: 0.8s; }
-  .frame > *:nth-child(6) { animation-delay: 0.95s; }
+  header             { animation-delay: 0.05s; }
+  .head > *:nth-child(1) { animation-delay: 0.15s; }
+  .head > *:nth-child(2) { animation-delay: 0.25s; }
+  figure:nth-child(1) { animation-delay: 0.35s; }
+  figure:nth-child(2) { animation-delay: 0.45s; }
+  figure:nth-child(3) { animation-delay: 0.55s; }
+  figure:nth-child(4) { animation-delay: 0.65s; }
+  .foot              { animation-delay: 0.8s; }
 
   @keyframes rise {
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* ---------- bottom line ---------- */
-  .bar {
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding: clamp(1.2rem, 3vw, 2rem) clamp(1.5rem, 4vw, 2.6rem);
-    font-size: 0.66rem;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--white-faint);
-    opacity: 0;
-    animation: rise 1s 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
-  }
-
-  .caption {
-    position: relative;
-    min-width: 15em;
-    height: 1.25em;
-    text-align: right;
-  }
-
-  .caption span {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    white-space: nowrap;
-    opacity: 0;
-    animation: fadecap 40s infinite;
-  }
-
-  .caption span:nth-child(1) { animation-delay: -40s; }
-  .caption span:nth-child(2) { animation-delay: -30s; }
-  .caption span:nth-child(3) { animation-delay: -20s; }
-  .caption span:nth-child(4) { animation-delay: -10s; }
-
-  @keyframes fadecap {
-    0%    { opacity: 1; }
-    22%   { opacity: 1; }
-    28.5% { opacity: 0; }
-    93%   { opacity: 0; }
-    100%  { opacity: 1; }
-  }
-
-  @media (max-width: 620px) {
-    .frame { padding-bottom: 5rem; }
-    .reserve .sep-break { display: block; height: 0; }
-    .bar { justify-content: center; }
-    .bar .site { display: none; }
-    .caption { text-align: center; min-width: 0; }
-    .caption span { right: 50%; transform: translateX(50%); }
+  /* ---------- small screens ---------- */
+  @media (max-width: 760px) {
+    body { padding-bottom: 2rem; }
+    .gallery { grid-template-columns: 1fr 1fr; }
+    .photo { min-height: 24vh; }
+    h1 { max-width: none; }
+    .foot { flex-direction: column; align-items: flex-start; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .frame > *, .bar { animation: none; opacity: 1; transform: none; }
-    .slide, .caption span { animation: none; }
-    .slide:nth-child(1), .caption span:nth-child(1) { opacity: 1; }
+    header, .head > *, figure, .foot { animation: none; opacity: 1; transform: none; }
+    .photo img { transition: none; }
   }
 </style>
 </head>
 <body>
 
-  <div class="scene" aria-hidden="true">
-    <div class="slide"></div>
-    <div class="slide"></div>
-    <div class="slide"></div>
-    <div class="slide"></div>
-  </div>
+  <header>
+    <span class="wordmark">Hunza City Hotel</span>
+    <span class="place">Hospital Road · Aliabad · Hunza</span>
+  </header>
 
-  <main class="frame">
-    <p class="eyebrow">Aliabad · Hunza Valley · Since 2016</p>
-
-    <h1>Hunza City Hotel</h1>
-
-    <hr class="rule">
-
-    <p class="lede">
-      Welcoming travellers on Hospital Road, Aliabad — minutes from
-      Attabad Lake, Baltit Fort, and the Karakoram Highway.
+  <section class="head">
+    <h1>Welcoming travellers to the heart of the <em>Karakoram</em> since 2016.</h1>
+    <p class="head-side">
+      A family-run hotel on Hospital Road, Aliabad — minutes from Attabad
+      Lake, Baltit Fort, and the Karakoram Highway.
     </p>
+  </section>
 
-    <p class="soon">Website coming soon</p>
+  <section class="gallery" aria-label="Photographs of the Hunza Valley">
+    <figure>
+      <div class="photo"><img src="assets/attabad-lake.jpg" alt="The turquoise water of Attabad Lake beneath steep rock walls"></div>
+      <figcaption><span>Attabad Lake</span> <i>01</i></figcaption>
+    </figure>
+    <figure>
+      <div class="photo"><img src="assets/karimabad.jpg" alt="Baltit Fort above the stone houses and trees of Karimabad"></div>
+      <figcaption><span>Baltit Fort</span> <i>02</i></figcaption>
+    </figure>
+    <figure>
+      <div class="photo"><img src="assets/passu-road.jpg" alt="The Karakoram Highway running toward snow-covered peaks near Passu"></div>
+      <figcaption><span>Karakoram Highway</span> <i>03</i></figcaption>
+    </figure>
+    <figure>
+      <div class="photo"><img src="assets/passu-cones.jpg" alt="The jagged peaks of Passu Cathedral under clouds"></div>
+      <figcaption><span>Passu Cathedral</span> <i>04</i></figcaption>
+    </figure>
+  </section>
 
-    <p class="reserve">
-      For reservations, please contact Azeem Ahmed
-      <span class="sep-break"></span>
+  <footer class="foot">
+    <span class="soon">Website coming soon</span>
+    <p class="contact">
+      For reservations, please contact <strong>Azeem Ahmed</strong>
+      <span class="sep">—</span>
       <a href="tel:+923440562425">+92 344 0562425</a>
       <span class="sep">·</span>
       <a href="https://wa.me/923440562425" target="_blank" rel="noopener">WhatsApp</a>
     </p>
-  </main>
-
-  <footer class="bar">
-    <span class="site">hunzacityhotel.com</span>
-    <span class="caption" aria-hidden="true">
-      <span>Attabad Lake, Gojal</span>
-      <span>Baltit Fort, Karimabad</span>
-      <span>The Karakoram Highway</span>
-      <span>Passu Cathedral</span>
-    </span>
   </footer>
 
 </body>
